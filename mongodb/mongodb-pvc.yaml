@@ -1,0 +1,11 @@
+# MongoDB Persistent Volume Claim (PVC)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce   # Or ReadWriteMany if using Azure Files
+  resources:
+    requests:
+      storage: 10Gi # Adjust storage size as needed

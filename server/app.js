@@ -23,7 +23,7 @@ connectDB();
 // CORS configuration
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL , // Use env variable
+    origin: process.env.process.env.FRONTEND_URL, 
     credentials: true,
   })
 );

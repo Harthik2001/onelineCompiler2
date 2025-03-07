@@ -1,0 +1,34 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myfrontend-deployment
+  labels:
+    app: myfrontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myfrontend
+  template:
+    metadata:
+      labels:
+        app: myfrontend
+    spec:
+      containers:
+      - name: myfrontend
+        image: taskcompiler.azurecr.io/myfrontend:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: BASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: frontend-secrets
+              key: BASE_URL
+        - name: REACT_APP_BACKEND_GOOGLE_URL
+          valueFrom:
+            secretKeyRef:
+              name: frontend-secrets
+              key: REACT_APP_BACKEND_GOOGLE_URL
+    

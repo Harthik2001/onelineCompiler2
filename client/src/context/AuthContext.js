@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       console.log("AuthContext: Token found in localStorage, fetching user...");
       axios
-        .get(`{process.env.REACT_APP_BACKEND_URL}/api/auth/user`, {                //change env
+        .get(`${process.env.BASE_URL}/api/auth/user`, {                //change env
           headers: { Authorization: `Bearer ${token}` },                       
         })
         .then((response) => {

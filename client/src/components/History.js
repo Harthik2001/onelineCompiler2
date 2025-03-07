@@ -36,7 +36,7 @@ const History = () => {
 
             try {
                 console.log(" Fetching history from API...");
-                const response = await axios.get("http://localhost:5000/api/code/history", {
+                const response = await axios.get(`${process.env.BASE_URL}/api/code/history`, {
                     headers: { Authorization: `Bearer ${user.token}` },
                     withCredentials: true
                 });
@@ -72,7 +72,7 @@ const History = () => {
             console.log("Deleting selected history items:", Array.from(selectedItems));
 
             await axios.post(
-                `${process.env.REACT_APP_BACKEND_URL}/api/code/history/delete`,                     //change 
+                `${process.env.BASE_URL}/api/code/history/delete`,                     //change 
                 { ids: Array.from(selectedItems) },
                 { headers: { Authorization: `Bearer ${user.token}` }, withCredentials: true }
             );

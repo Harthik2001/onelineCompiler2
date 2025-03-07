@@ -1,7 +1,7 @@
 // client/src/api.js
 import axios from 'axios';
 
-const API_URL = `{process.env.REACT_APP_BACKEND_URL}/api`;
+const API_URL = `${process.env.BASE_URL}/api`;
 
 // Utility function to get token from localStorage
 const getAuthHeaders = () => {
