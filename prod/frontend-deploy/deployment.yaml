@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: myfrontend
-        image: taskcompiler.azurecr.io/myfrontend:latest
+        image: harthik3004/frontend:latest
         ports:
         - containerPort: 3000
         env:
